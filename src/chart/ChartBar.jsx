@@ -8,14 +8,13 @@ const ChartBar = ({ label, value, totalMax }) => {
 	}
 
 	return (
-		<StyledChartBar className='chart-bar'>
-			<ChartBarInner className='chart-bar__inner'>
+		<StyledChartBar>
+			<ChartBarInner>
 				<ChartBarFill
-					className='chart-bar__fill'
 					style={{ height: barFillHeight }}
 				></ChartBarFill>
 			</ChartBarInner>
-			<ChartBarLabel className='chart-bar__label'>{label}</ChartBarLabel>
+			<ChartBarLabel>{label}</ChartBarLabel>
 		</StyledChartBar>
 	)
 }

@@ -9,7 +9,7 @@ const Chart = ({ dataPoints }) => {
 	const totalMax = Math.max(...dataPointsValues)
 
 	return (
-		<StyledChart className='chart'>
+		<StyledChart>
 			{dataPoints.map((point) => {
 				return (
 					<ChartBar
