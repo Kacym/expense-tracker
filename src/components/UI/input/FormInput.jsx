@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input } from './Input'
-import './FormInput.css'
+import { styled } from 'styled-components'
 
 const FormInput = ({
 	inputType = 'text',
@@ -12,9 +12,9 @@ const FormInput = ({
 }) => {
 	return (
 		<div>
-			<label className='label' htmlFor={id}>
+			<Label htmlFor={id}>
 				{label}
-			</label>
+			</Label>
 			<Input
 				id={id}
 				type={inputType}
@@ -25,5 +25,11 @@ const FormInput = ({
 		</div>
 	)
 }
+
+const Label = styled.label`
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	display: block;
+`
 
 export default FormInput

@@ -1,8 +1,17 @@
 import React from 'react'
-import './Input.css'
+import { styled } from 'styled-components'
 
 export const Input = ({ type, value, onChange, ...rest }) => {
 	return (
-		<input value={value} onChange={onChange} {...rest} type={type}></input>
+		<StyledInput value={value} onChange={onChange} {...rest} type={type}></StyledInput>
 	)
 }
+
+const StyledInput = styled.input`
+	font: inherit;
+	padding: 0.5rem;
+	border-radius: 6px;
+	border: 1px solid #ccc;
+	width: 20rem;
+	max-width: 100%;
+`

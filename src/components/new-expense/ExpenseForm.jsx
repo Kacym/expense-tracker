@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FormInput from '../UI/input/FormInput'
 import Button from '../UI/button/Button'
 import './ExpenseForm.css'
+import { styled } from 'styled-components'
 
 const ExpenseForm = ({ onCloseForm, onAddNewExpense }) => {
 	const [title, setTitle] = useState('')
@@ -50,7 +51,7 @@ const ExpenseForm = ({ onCloseForm, onAddNewExpense }) => {
 
 	return (
 		<form onSubmit={submitHandler}>
-			<div className='new-expense__controls'>
+			<NewExpensesControl className='new-expense__controls'>
 				<FormInput
 					label={'Заголовок'}
 					type='text'
@@ -70,17 +71,31 @@ const ExpenseForm = ({ onCloseForm, onAddNewExpense }) => {
 					onChange={dateChangeHandler}
 					value={date}
 				/>
-			</div>
-			<div className='new-expense__actions'>
+			</NewExpensesControl>
+			<NewExpenseAction className='new-expense__actions'>
 				<Button type='button' onClick={onCloseForm}>
 					Отмена
 				</Button>
 				<Button type='submit'>Добавить расходы</Button>
-			</div>
+			</NewExpenseAction>
 		</form>
 	)
 }
 
+const NewExpensesControl = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	text-align: left;
+`
+
+const NewExpenseAction = styled.div`
+	text-align: right;
+	display: flex;
+	gap: 1rem;
+	justify-content: flex-end;
+`
 export default ExpenseForm
 
 // git init

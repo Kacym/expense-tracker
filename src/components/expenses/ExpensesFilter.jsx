@@ -1,12 +1,12 @@
 import React from 'react'
-import './ExpensesFilter.css'
+import { styled } from 'styled-components'
 
 const ExpensesFilter = ({ selectedYear, onSelectedYearChange }) => {
 	return (
-		<div className='expenses-filter'>
-			<div className='expenses-filter__control'>
-				<label htmlFor='filter'>Filter by year:</label>
-				<select
+		<StyledExpensesFilter>
+			<ExpensesFilterControl>
+				<ExpensesFilterLabel htmlFor='filter'>Filter by year:</ExpensesFilterLabel>
+				<ExpensesFilterSelect
 					id='filter'
 					value={selectedYear}
 					onChange={onSelectedYearChange}
@@ -16,10 +16,32 @@ const ExpensesFilter = ({ selectedYear, onSelectedYearChange }) => {
 					<option value='2021'>2021</option>
 					<option value='2020'>2020</option>
 					<option value='All'>All</option>
-				</select>
-			</div>
-		</div>
+				</ExpensesFilterSelect>
+			</ExpensesFilterControl>
+		</StyledExpensesFilter>
 	)
 }
 
+const StyledExpensesFilter = styled.div`
+	color: white;
+	padding: 0 1rem;
+`
+const ExpensesFilterControl = styled.div`
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	margin: 1rem 0;
+`
+const ExpensesFilterLabel = styled.label`
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+`
+
+const ExpensesFilterSelect = styled.select`
+	font: inherit;
+	padding: 0.5rem 3rem;
+	font-weight: bold;
+	border-radius: 6px;
+`
 export default ExpensesFilter

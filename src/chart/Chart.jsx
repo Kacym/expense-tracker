@@ -1,6 +1,6 @@
 import React from 'react'
-import './Chart.css'
 import ChartBar from './ChartBar'
+import { styled } from 'styled-components'
 
 const Chart = ({ dataPoints }) => {
 	const dataPointsValues = dataPoints.map((d) => d.value)
@@ -9,7 +9,7 @@ const Chart = ({ dataPoints }) => {
 	const totalMax = Math.max(...dataPointsValues)
 
 	return (
-		<div className='chart'>
+		<StyledChart className='chart'>
 			{dataPoints.map((point) => {
 				return (
 					<ChartBar
@@ -20,8 +20,18 @@ const Chart = ({ dataPoints }) => {
 					/>
 				)
 			})}
-		</div>
+		</StyledChart>
 	)
 }
+
+const StyledChart = styled.div`
+	padding: 1rem;
+	border-radius: 12px;
+	background-color: #f8dfff;
+	text-align: center;
+	display: flex;
+	justify-content: space-around;
+	height: 10rem;
+	`
 
 export default Chart
